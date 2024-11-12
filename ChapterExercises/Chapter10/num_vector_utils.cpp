@@ -18,3 +18,11 @@ int num_vector_sum(const vector<int>& vect) {
 }
     return s;
 }
+
+int num_vector_product(const vector<int>& vect) {
+    int s = vect[0];
+    for (int i = 1; i < vect.size(); i++){
+        s *= vect[i];
+}
+    return s;
+}
