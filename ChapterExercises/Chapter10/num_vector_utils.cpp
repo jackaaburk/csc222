@@ -10,3 +10,11 @@ string render_num_vector(const vector<int>& vect) {
 }
     return ss;
 }
+
+int num_vector_sum(const vector<int>& vect) {
+    int s = 0;
+    for (int i = 0; i < vect.size(); i++){
+        s += vect[i];
+}
+    return s;
+}
