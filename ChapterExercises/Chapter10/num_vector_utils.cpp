@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -6,8 +7,8 @@ string render_num_vector(const vector<int>& vect) {
     string s = "", ss;
     for (int i = 0; i < vect.size(); i++){
 	s += to_string(vect[i]) + " ";
-	ss = s.substr(0, s.size()-1);
 }
+    ss = s.substr(0, s.size()-1);
     return ss;
 }
 
@@ -25,4 +26,13 @@ int num_vector_product(const vector<int>& vect) {
         s *= vect[i];
 }
     return s;
+}
+
+vector only_evens(const vector<int>& vect) {
+    for (int i = 0; i < vect.size(); i++){
+        if (vect[i] % 2 == 0){
+            vect.erase(vect.begin() + i);
+    }
+}
+    return vect;
 }
