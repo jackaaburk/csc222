@@ -66,7 +66,7 @@ vector<int> nums_between(const vector<int>& vect, int num1, int num2) {
 
 double num_vector_mean(const vector<int>& vect) {
     double s = 0;
-    for (int i = 1; i < vect.size(); i++){
+    for (int i = 0; i < vect.size(); i++){
         s += vect[i];
 }
     s /= vect.size();
