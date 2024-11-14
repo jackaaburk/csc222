@@ -56,3 +56,8 @@ TEST_CASE("Testing nums_between function") {
     string expected = "11 13 10 19 20 14";
     CHECK(render_num_vector(nums2) == expected);
 }
+
+TEST_CASE("Testing num_vector_mean") {
+    vector<int> nums = {1, 4, 10};
+    CHECK(5 == num_vector_mean(nums));
+}
