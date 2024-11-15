@@ -72,3 +72,23 @@ double num_vector_mean(const vector<int>& vect) {
     s /= vect.size();
     return s;
 }
+
+double num_vector_median(const vector<int>& vect) {
+    int s = 0,ss,dex,num1,num2,num3;
+    float medi;
+    s+= vect.size();
+    ss = s % 2;
+    if (ss == 0){
+	dex = vect.size()/2;
+	num1 = vect[dex-1];
+	num2 = vect[dex];
+	num3 = num1 + num2;
+	medi = num3/2.;
+}
+    else{
+	dex = vect.size()/2;
+	medi = vect[dex];
+}
+    
+    return medi;
+}

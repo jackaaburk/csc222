@@ -10,6 +10,8 @@ int num_vector_product(const vector<int>&);
 
 double num_vector_mean(const vector<int>&);
 
+double num_vector_median(const vector<int>&);
+
 vector<int> only_evens(const vector<int>&);
 
 vector<int> only_odds(const vector<int>&);
