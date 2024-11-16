@@ -1,6 +1,8 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <climits>
+#include <unordered_map>
 using namespace std;
 
 string render_num_vector(const vector<int>& vect) {
@@ -91,4 +93,27 @@ double num_vector_median(const vector<int>& vect) {
 }
     
     return medi;
+}
+
+vector<int> num_vector_mode(const vector<int>& nums) {
+    unordered_map<int, int> frequencyMap;
+
+    for (int num : nums) {
+        frequencyMap[num]++;
+    }
+
+    int maxCount = 0;
+
+    for (const auto& entry : frequencyMap) {
+        maxCount = max(maxCount, entry.second);
+    }
+
+    vector<int> modes;
+    for (const auto& entry : frequencyMap) {
+        if (entry.second == maxCount) {
+            modes.push_back(entry.first);
+        }
+    }
+
+    return modes;
 }

@@ -71,3 +71,14 @@ TEST_CASE("Testing num_vector_median with even amount of numbers") {
     vector<int> nums = {1, 4, 8, 10};
     CHECK(6 == num_vector_median(nums));
 }
+
+TEST_CASE("Testing mode function"){
+    vector<int> nums1 = {1,1,1,4,4,4,4,8,8,8};
+    vector<int> nums2 = {1,1,4,4,8,8};
+    vector<int> mode1 = num_vector_mode(nums1);
+    vector<int> mode2 = num_vector_mode(nums2);
+    string ex1  = "4";
+    string ex2  = "8 4 1";
+    CHECK(ex1 == render_num_vector(mode1));
+    CHECK(ex2 == render_num_vector(mode2));
+}
