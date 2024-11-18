@@ -13,15 +13,12 @@ struct Time {
 void Time::increment(double secs)
 {
     second += secs;
-
-    while (second >= 60.0) {
-        second -= 60.0;
-        minute += 1;
-    }
-    while (minute >= 60) {
-        minute -= 60;
-        hour += 1;
-    }
+    int additionalMinutes = static_cast<int>(second / 60);
+    second -= static_cast<int>(second / 60) * 60;
+    minute += additionalMinutes;
+    int additionalHours = minute / 60;
+    minute %= 60;
+    hour += additionalHours;
 }
 
 void Time::print()
