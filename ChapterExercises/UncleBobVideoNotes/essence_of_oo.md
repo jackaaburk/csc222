@@ -7,5 +7,7 @@
 ### What is the design of a software product?
 - The design of a software product is the source code, the binary that runs it is the product.
 ### According to Uncle Bob, what is the essential characteristic of Object-Oriented design?
+- The essential characteristic of OO is the ability to invert key dependencies.
 - It's about managing dependencies.
 - It prevents code rot if done correctly.
+- Make the sender and recipient not be dependant on each other.
