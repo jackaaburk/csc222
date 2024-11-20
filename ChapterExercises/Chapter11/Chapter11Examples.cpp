@@ -20,6 +20,7 @@ struct Time {
     void increment(double secs);
     double convert_to_seconds() const;
     bool after(const Time& t2) const;
+    Time add(const Time& t2) const;
 };
 
 
@@ -36,6 +37,7 @@ void Time::print() {
 }
 
 
+
 void Time::increment(double secs) {
     second += secs;
 
@@ -50,9 +52,11 @@ void Time::increment(double secs) {
 }
 
 
+
 double Time::convert_to_seconds() const {
     return (hour * 60 + minute) * 60 + second;
 }
+
 
 
 bool Time::after(const Time& t2) const {
@@ -63,6 +67,10 @@ bool Time::after(const Time& t2) const {
     return (second > t2.second);
 }
 
+Time Time::add(const Time& t2) const
+{
+    return Time(convert_to_seconds() + t2.convert_to_seconds());
+}
 
 int main() {
     Time current_time = {9, 14, 30.0};
