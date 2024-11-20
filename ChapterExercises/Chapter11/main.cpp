@@ -2,6 +2,14 @@
 #include "Time.h"
 using namespace std;
 
+struct Point {
+    double x, y;
+
+    Point(double x, double y) {
+        this->x = x;
+        this->y = y;
+    }
+};
 
 int main() {
     Time current_time = {9, 14, 30.0};
