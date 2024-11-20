@@ -6,12 +6,29 @@ using namespace std;
 struct Time {
     int hour, minute;
     double second;
+
+    Time(int h, int m, double s) {
+    hour = h;
+    minute = m;
+    second = s;
+    }
+
+    Time(double secs);
+
     void print();
     void increment(double secs);
     double convert_to_seconds() const;
     bool after(const Time& t2) const;
 };
 
+
+Time::Time(double secs) {
+    hour = int(secs / 3600.0);
+    secs -= hour * 3600.0;
+    minute = int(secs / 60.0);
+    secs -= minute * 60;
+    second = secs;
+}
 
 void Time::print() {
     cout << hour << ":" << minute << ":" << second << endl;
@@ -54,7 +71,11 @@ int main() {
     cout << current_time.convert_to_seconds() << endl;
     Time done_time = {10, 14, 31.0};
     if (done_time.after(current_time)) {
-    cout << "The bread will be done after it starts." << endl;
-}
+        cout << "The bread will be done after it starts." << endl;
+    }
+
+    Time elapsed_time(3661.5);
+    elapsed_time.print();
+
     return 0;
 }
