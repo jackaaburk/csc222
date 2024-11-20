@@ -1,18 +1,24 @@
 #include <iostream>
 using namespace std;
 
+
 struct Time {
     int hour, minute;
     double second;
+
+    void print();
 };
 
-void print_time(const Time& time)
-{
-    cout << time.hour << ":" << time.minute  << ":" << time.second << endl;
+
+void Time::print() {
+    Time time = *this;
+    cout << time.hour << ":" << time.minute << ":" << time.second << endl;
 }
+
+
 
 int main() {
     Time current_time = {9, 14, 30.0};
-    print_time(current_time);
+    current_time.print();
     return 0;
 }
