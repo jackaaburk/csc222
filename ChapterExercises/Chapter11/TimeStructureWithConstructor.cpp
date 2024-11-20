@@ -6,11 +6,23 @@ struct Time {
     double second;
 
     Time(int h, int m, double s) {
-    hour = h;
-    minute = m;
-    second = s;
+        hour = h;
+        minute = m;
+        second = s;
+        cout << "Constructor 1: Time(" << h << ", " << m << ", " << s << ")" << endl;
     }
-    void print();
+
+    Time(int h, int m, int s) {
+        hour = h;
+        minute = m;
+        second = s;
+        cout << "Constructor 2: Time(" << h << ", " << m << ", " << s << ")" << endl;
+    }
+
+    void print() {
+        cout << hour << ":" << minute << ":" << second << endl;
+    }
+
     void increment(double secs);
 };
 
@@ -24,13 +36,11 @@ void Time::increment(double secs) {
     hour += additionalHours;
 }
 
-void Time::print() {
-    cout << hour << ":" << minute << ":" << second << endl;
-}
-
 int main() {
-    Time current_time(9, 14, 3);
+    Time current_time(9, 14, 3); 
+    Time another_time(10, 20, 3.5);
     current_time.increment(500.0);
     current_time.print();
+
     return 0;
 }
