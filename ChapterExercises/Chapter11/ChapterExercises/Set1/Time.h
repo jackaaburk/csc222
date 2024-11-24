@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-class Time {
+struct Time {
     int hours;
     int minutes;
     int seconds;
