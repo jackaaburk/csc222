@@ -10,5 +10,6 @@ struct Time {
 
     Time();
     Time(int totalSeconds);
+    Time(int h, int m, int s = 0);
     string to_string() const;
 };
