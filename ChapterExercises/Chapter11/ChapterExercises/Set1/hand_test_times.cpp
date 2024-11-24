@@ -3,7 +3,7 @@
 #include "Time.h"
 using namespace std;
 
-Time::() : hours(0), minutes(0), seconds(0) {}
+Time::Time() : hours(0), minutes(0), seconds(0) {}
 
 Time::Time(int totalSeconds) {
     hours=(totalSeconds / 3600);
@@ -11,8 +11,9 @@ Time::Time(int totalSeconds) {
     seconds=(totalSeconds % 60);
 }
 
-ostream& operator<<(ostream& os, const Time& tm) {
+friend ostream& operator<<(ostream& os, const Time& tm) {
     os << tm.hours << ':' << tm.minutes << ':' << tm.seconds;
+    return os;
 }
 
 int main() {
