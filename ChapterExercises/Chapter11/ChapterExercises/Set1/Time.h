@@ -1,17 +1,14 @@
-#ifndef TIME_H
 #define TIME_H
+
 #include <string>
 using namespace std;
 
-struct Time {
-    int s;
-    Time(int secs);
-    Time(int h, int m, int s);
-    Time(int h, int m);
-    Time();
-    string to_string();
-    Time operator+(Time &t);
-};
+class Time {
+    int hours;
+    int minutes;
+    int seconds;
 
-ostream& operator<<(ostream& i, Time& t);
-#endif
+    Time();
+    Time(int totalSeconds);
+    string to_string() const;
+};

@@ -1,29 +1,20 @@
 #include "Time.h"
-#include <iostream>
-#include <string>
-
+#include <sstream>
 using namespace std;
 
-Time::Time(int ss){
-    s = ss;
-}
+Time::Time() : hours(0), minutes(0), seconds(0) {}
 
-Time::Time(int h, int m, int ss){
-    s = ss + (m * 60) + (h * 3600);
-}
+Time::Time(int totalSeconds)
+    : hours(totalSeconds / 3600),
+      minutes((totalSeconds % 3600) / 60),
+      seconds(totalSeconds % 60) {}
 
-Time::Time(int h, int m){
-    s = h * 3600 + m * 60;
-}
-
-Time::Time(){
-    s = 0;
-}
-
-Time Time::operator+(Time &t){
-    return Time(t.s + this->s);
-}
-
-string Time::to_string(){
-    return "no";
+string Time::to_string() const {
+    stringstream ss;
+    ss << hours << ":";
+    if (minutes < 10) ss << "0";
+    ss << minutes << ":";
+    if (seconds < 10) ss << "0";
+    ss << seconds;
+    return ss.str();
 }
