@@ -21,6 +21,14 @@ Time Time::operator+(Time const& obj) {
       added_time.hours = hours + obj.hours;
       added_time.minutes = minutes + obj.minutes;
       added_time.seconds = seconds + obj.seconds;
+      if (added_time.seconds >= 60) {
+            added_time.minutes += 1;
+            added_time.seconds %= 60;
+}
+     if (added_time.minutes >= 60) {
+            added_time.hours += 1;
+            added_time.minutes %= 60;
+}
       return added_time;
 }
 
