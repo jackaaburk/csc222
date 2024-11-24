@@ -11,5 +11,6 @@ struct Time {
     Time();
     Time(int totalSeconds);
     Time(int h, int m, int s = 0);
+    Time operator+(Time const& obj);
     string to_string() const;
 };

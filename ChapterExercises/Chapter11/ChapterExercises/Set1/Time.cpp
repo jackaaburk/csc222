@@ -16,7 +16,7 @@ Time::Time(int h, int m, int s) {
       seconds = s;
 }
 
-Time::operator+(Time const& obj) {
+Time::Time operator+(Time const& obj) {
       Time added_time;
       added_time.hours = hours + obj.hours;
       added_time.minutes = minutes + obj.minutes;
