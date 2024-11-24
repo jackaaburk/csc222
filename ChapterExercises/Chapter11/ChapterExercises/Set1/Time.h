@@ -1,8 +1,17 @@
+#ifndef TIME_H
+#define TIME_H
 #include <string>
-#include <vector>
+using namespace std;
+
 struct Time {
-    int hour, minute;
-    double second;
-    Time(double secs);
-    to_string();
+    int s;
+    Time(int secs);
+    Time(int h, int m, int s);
+    Time(int h, int m);
+    Time();
+    string to_string();
+    Time operator+(Time &t);
 };
+
+ostream& operator<<(ostream& i, Time& t);
+#endif
