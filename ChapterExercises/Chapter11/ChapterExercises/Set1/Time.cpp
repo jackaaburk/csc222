@@ -32,6 +32,7 @@ Time Time::operator+(Time const& obj) {
       return added_time;
 }
 
+
 string Time::to_string() const {
     stringstream ss;
     ss << hours << ":";
