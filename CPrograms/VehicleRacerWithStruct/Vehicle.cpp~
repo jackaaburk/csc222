@@ -31,11 +31,6 @@ float Vehicle::calcspeed() {
   return speed;
 }
 
-string Vehicle::race(Vehicle vehicle1, Vehicle vehicle2, int distance) {
-  float vehicle1time = distance / vehicle1.speed;
-  float vehicle2time = distance / vehicle2.speed;
-  if (vehicle1time < vehicle2time) {
-	float difference = vehicle2time - vehicle1time;
-	return ::to_string(vehicle1) + "(" + vehicle1time + " seconds) beat " + ::to_string(vehicle2) + "(" + vehicle2time + " seconds) by " + difference + " seconds."
-  }
+string Vehicle::race(vehicle1, vehicle2, int distance) {
+
 }
