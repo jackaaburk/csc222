@@ -14,4 +14,7 @@ TEST_CASE("Test CalcSpeed") {
     Vehicle Car1(1500, 12);
     float calculated_speed = Car1.calcspeed();
     CHECK(calculated_speed == 32.0);
+    Vehicle Truck1(3000, 8, 18);
+    float calculated_speed2 = Truck1.calcspeed();
+    CHECK(calculated_speed2 == 48.0);
 }
