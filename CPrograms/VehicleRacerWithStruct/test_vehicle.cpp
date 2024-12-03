@@ -12,6 +12,6 @@ TEST_CASE("Test can create and render Vehicle") {
 
 TEST_CASE("Test CalcSpeed") {
     Vehicle Car1(1500, 12);
-    Car1.calcspeed();
-    CHECK(Car1.speed == 32.);
+    float calculated_speed = Car1.calcspeed();
+    CHECK(calculated_speed == 32.0);
 }
