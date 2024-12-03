@@ -9,3 +9,9 @@ TEST_CASE("Test can create and render Vehicle") {
     CHECK(Car1.to_string() == "This is a vehicle that's 1500kg with 12 cylinders");
     CHECK(Truck1.to_string() == "This is a vehicle that's 3000kg with 8 cylinders");
 }
+
+TEST_CASE("Test CalcSpeed") {
+    Vehicle Car1(1500, 12);
+    Car1.calcspeed();
+    CHECK(Car1.speed == 32.);
+}
