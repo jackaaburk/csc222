@@ -14,8 +14,8 @@ Vehicle::Vehicle(int weight, int cylinders, int num_wheels) {
   num_wheels = num_wheels;
   }
 
-Vehicle::to_string(Vehicle) {
+string Vehicle::to_string() {
   string outputstring;
-  outputstring = "This is a car that's " + weight + "kg with " + cylinders + "cylinders";
+  outputstring = "This is a car that's " + ::to_string(weight) + "kg with " + ::to_string(cylinders) + " cylinders";
   return outputstring;
 }

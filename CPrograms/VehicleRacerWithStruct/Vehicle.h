@@ -10,5 +10,5 @@ struct Vehicle {
 
     Vehicle(int weight, int cylinders, int num_wheels);
 
-    string to_string(Vehicle);
+    string to_string();
 };
