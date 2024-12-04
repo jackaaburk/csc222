@@ -25,12 +25,11 @@ string Vehicle::to_string() {
   return outputstring;
 }
 
-float Vehicle::calcspeed() {
+void Vehicle::calcspeed() {
   if (num_wheels == 0) {
     num_wheels = 4;
   }
   this->speed = ((static_cast<float>(cylinders * num_wheels) / weight) * 1000);
-  return speed;
 }
 
 string Vehicle::race(Vehicle vehicle1, Vehicle vehicle2, int distance) {

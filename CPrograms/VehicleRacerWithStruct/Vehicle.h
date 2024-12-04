@@ -13,7 +13,7 @@ struct Vehicle {
 
     string to_string();
 
-    float calcspeed();
+    void calcspeed();
 
     static string race(Vehicle vehicle1, Vehicle vehicle2, int distance);
 };
