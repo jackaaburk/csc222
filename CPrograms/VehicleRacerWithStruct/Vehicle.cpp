@@ -42,7 +42,7 @@ string Vehicle::race(Vehicle vehicle1, Vehicle vehicle2, int distance) {
   if (vehicle1time < vehicle2time) {
     float difference = vehicle2time - vehicle1time;
     ostringstream oss;
-    oss << "Vehicle 1 (" << setprecision(2) << vehicle1time <<
+    oss << "Vehicle 1 (" << fixed << setprecision(2) << vehicle1time <<
            " seconds) beat Vehicle 2 (" <<
            vehicle2time << " seconds) by " <<
            difference << " seconds.";
@@ -51,14 +51,14 @@ string Vehicle::race(Vehicle vehicle1, Vehicle vehicle2, int distance) {
   } else if (vehicle1time > vehicle2time) {
     float difference = vehicle1time - vehicle2time;
     ostringstream oss;
-    oss << "Vehicle 2 (" << setprecision(2) << vehicle2time <<
+    oss << "Vehicle 2 (" << fixed << setprecision(2) << vehicle2time <<
            " seconds) beat Vehicle 1 (" <<
            vehicle1time << " seconds) by " <<
            difference << " seconds.";
     return oss.str();
   } else {
     ostringstream oss;
-    oss << "The vehicles tied with a time of " << setprecision(2) << vehicle1time <<
+    oss << "The vehicles tied with a time of " << fixed << setprecision(2) << vehicle1time <<
            " seconds.";
     return oss.str();
   }
