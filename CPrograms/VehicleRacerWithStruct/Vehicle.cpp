@@ -32,17 +32,25 @@ float Vehicle::calcspeed() {
 }
 
 string Vehicle::race(Vehicle vehicle1, Vehicle vehicle2, int distance) {
-  float vehicle1time = distance / vehicle1.speed;
-  float vehicle2time = distance / vehicle2.speed;
+  vehicle1.calcspeed();
+  vehicle2.calcspeed();
+  float vehicle1time = static_cast<float>(distance) / vehicle1.speed;
+  float vehicle2time = static_cast<float>(distance) / vehicle2.speed;
+
   if (vehicle1time < vehicle2time) {
-	float difference = vehicle2time - vehicle1time;
-	return to_string(vehicle1) + "(" + std::to_string(vehicle1time) + " seconds) beat " + std::to_string(vehicle2) + "(" + std::to_string(vehicle2time) + " seconds) by " + std::to_string(difference) + " seconds.";
-  }
-  else if (vehicle1time > vehicle2time) {
-	float difference = vehicle1time - vehicle2time;
-	return std::to_string(vehicle2) + "(" + std::to_string(vehicle2time) + " seconds) beat " + std::to_string(vehicle1) + "(" + std::to_string(vehicle1time) + " seconds) by " + std::to_string(difference) + " seconds.";
-  }
-  else {
-	return "The vehicles tied with a time of " + std::to_string(vehicle1) + " seconds.";
+    float difference = vehicle2time - vehicle1time;
+    return vehicle1.to_string() + " (" + std::to_string(vehicle1time) +
+           " seconds) beat " + vehicle2.to_string() + " (" +
+           std::to_string(vehicle2time) + " seconds) by " +
+           std::to_string(difference) + " seconds.";
+  } else if (vehicle1time > vehicle2time) {
+    float difference = vehicle1time - vehicle2time;
+    return vehicle2.to_string() + " (" + std::to_string(vehicle2time) +
+           " seconds) beat " + vehicle1.to_string() + " (" +
+           std::to_string(vehicle1time) + " seconds) by " +
+           std::to_string(difference) + " seconds.";
+  } else {
+    return "The vehicles tied with a time of " + std::to_string(vehicle1time) +
+           " seconds.";
   }
 }

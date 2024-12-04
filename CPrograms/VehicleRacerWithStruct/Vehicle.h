@@ -15,6 +15,6 @@ struct Vehicle {
 
     float calcspeed();
 
-    string race(Vehicle vehicle1, Vehicle vehicle2, int distance);
+    static string race(Vehicle vehicle1, Vehicle vehicle2, int distance);
 };
 

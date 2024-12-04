@@ -24,6 +24,6 @@ TEST_CASE("Test race") {
     Car1.calcspeed();
     Vehicle Car2(2000, 12);
     Car2.calcspeed();
-    string racestring = Vehicle.race(Car1, Car2, 1000);
-    CHECK(racestring = "");
+    string racestring = Vehicle::race(Car1, Car2, 1000);
+    CHECK(racestring == "Car1 (31 seconds) beat Car2 (41 seconds) by 10 seconds.");
 }
