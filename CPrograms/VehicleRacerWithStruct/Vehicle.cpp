@@ -39,14 +39,14 @@ string Vehicle::race(Vehicle vehicle1, Vehicle vehicle2, int distance) {
 
   if (vehicle1time < vehicle2time) {
     float difference = vehicle2time - vehicle1time;
-    return vehicle1.to_string() + " (" + std::to_string(vehicle1time) +
-           " seconds) beat " + vehicle2.to_string() + " (" +
+    return "Vehicle 1 (" + std::to_string(vehicle1time) +
+           " seconds) beat Vehicle 2 (" +
            std::to_string(vehicle2time) + " seconds) by " +
            std::to_string(difference) + " seconds.";
   } else if (vehicle1time > vehicle2time) {
     float difference = vehicle1time - vehicle2time;
-    return vehicle2.to_string() + " (" + std::to_string(vehicle2time) +
-           " seconds) beat " + vehicle1.to_string() + " (" +
+    return "Vehicle 2 (" + std::to_string(vehicle2time) +
+           " seconds) beat Vehicle 1 (" +
            std::to_string(vehicle1time) + " seconds) by " +
            std::to_string(difference) + " seconds.";
   } else {
