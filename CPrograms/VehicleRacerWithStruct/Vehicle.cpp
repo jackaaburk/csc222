@@ -1,5 +1,7 @@
 #include "Vehicle.h"
 #include <iostream>
+#include <sstream>
+#include <iomanip>
 #include <string>
 using namespace std;
 
@@ -39,18 +41,25 @@ string Vehicle::race(Vehicle vehicle1, Vehicle vehicle2, int distance) {
 
   if (vehicle1time < vehicle2time) {
     float difference = vehicle2time - vehicle1time;
-    return "Vehicle 1 (" + std::to_string(vehicle1time) +
-           " seconds) beat Vehicle 2 (" +
-           std::to_string(vehicle2time) + " seconds) by " +
-           std::to_string(difference) + " seconds.";
+    ostringstream oss;
+    oss << "Vehicle 1 (" << setprecision(2) << vehicle1time <<
+           " seconds) beat Vehicle 2 (" <<
+           vehicle2time << " seconds) by " <<
+           difference << " seconds.";
+    return oss.str();
+
   } else if (vehicle1time > vehicle2time) {
     float difference = vehicle1time - vehicle2time;
-    return "Vehicle 2 (" + std::to_string(vehicle2time) +
-           " seconds) beat Vehicle 1 (" +
-           std::to_string(vehicle1time) + " seconds) by " +
-           std::to_string(difference) + " seconds.";
+    ostringstream oss;
+    oss << "Vehicle 2 (" << setprecision(2) << vehicle2time <<
+           " seconds) beat Vehicle 1 (" <<
+           vehicle1time << " seconds) by " <<
+           difference << " seconds.";
+    return oss.str();
   } else {
-    return "The vehicles tied with a time of " + std::to_string(vehicle1time) +
+    ostringstream oss;
+    oss << "The vehicles tied with a time of " << setprecision(2) << vehicle1time <<
            " seconds.";
+    return oss.str();
   }
 }
