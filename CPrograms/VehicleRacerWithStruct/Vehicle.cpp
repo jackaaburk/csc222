@@ -8,7 +8,7 @@ using namespace std;
 Vehicle::Vehicle(int w, int c) {
   weight = w;
   cylinders = c;
-  num_wheels = 0;
+  num_wheels = 4;
   speed = 0.0;
   }
 
@@ -26,9 +26,6 @@ string Vehicle::to_string() {
 }
 
 void Vehicle::calcspeed() {
-  if (num_wheels == 0) {
-    num_wheels = 4;
-  }
   this->speed = ((static_cast<float>(cylinders * num_wheels) / weight) * 1000);
 }
 
