@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <algorithm>
 #include "Fraction.h"
 using namespace std;
 
@@ -18,4 +20,16 @@ Fraction::Fraction(string s) {
 	int slashpos = s.find(slash);
 	numerator = stoi (s.erase(slashpos));
 	denominator = stoi (s2.erase(0,slashpos+1));
+}
+
+string Fraction::to_string() {
+	stringstream oss;
+	oss << ::to_string(numerator) << "/" << ::to_string(denominator);
+	return oss.str();
+}
+
+int Fraction::gcd(int n, int d) {
+    if (n == 0)
+        return d;
+    return gcd(d % n, n);
 }
