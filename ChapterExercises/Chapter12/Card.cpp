@@ -10,6 +10,9 @@ struct Card {
     Card();
     Card(int s, int r);
     string to_string() const;
+    bool operator==(const Card& c2) const;
+    bool operator>(const Card& c2) const;
+    bool operator<=(const Card& c2) const;
 };
 
 Card::Card() : suit(0), rank(0) {}
@@ -25,8 +28,23 @@ string Card::to_string() const {
     return rank_strings[rank] + " of " + suit_strings[suit];
 }
 
+bool Card::operator==(const Card& c2) const {
+    return (rank == c2.rank && suit == c2.suit);
+}
+
+bool Card::operator>(const Card& c2) const {
+    if (suit > c2.suit) return true;
+    if (suit < c2.suit) return false;
+    return rank > c2.rank;
+}
+
+bool Card::operator<=(const Card& c2) const {
+    return !(this->operator>(c2));
+}
+
 int main() {
-    Card card(3, 11);
-    cout << card.to_string() << endl;
+    Card card1(2, 11), card2(2, 9);
+    cout << (card1 > card2) << endl;
+    cout << (card1 <= card2) << endl;
     return 0;
 }
