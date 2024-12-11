@@ -42,9 +42,27 @@ bool Card::operator<=(const Card& c2) const {
     return !(this->operator>(c2));
 }
 
+vector<Card> create_deck() {
+    vector<Card> deck(52);
+    int i = 0;
+    for (int suit = 0; suit <= 3; suit++) {
+        for (int rank = 1; rank <= 13; rank++) {
+            deck[i].suit = suit;
+            deck[i].rank = rank;
+            i++;
+        }
+    }
+    return deck;
+}
+
+void print_deck(const vector<Card>& deck) {
+    for (const Card& card : deck) {
+        cout << card.to_string() << endl;
+    }
+}
+
 int main() {
-    Card card1(2, 11), card2(2, 9);
-    cout << (card1 > card2) << endl;
-    cout << (card1 <= card2) << endl;
+    vector<Card> deck = create_deck();
+    print_deck(deck);
     return 0;
 }
