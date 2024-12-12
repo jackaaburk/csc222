@@ -9,6 +9,6 @@ struct Fraction {
     Fraction();
     Fraction(string fraction);
     string to_string();
-    int gcd(int n, int d);
 };
 
+int gcd(int n, int d);

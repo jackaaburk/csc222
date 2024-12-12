@@ -29,3 +29,9 @@ TEST_CASE("Test can render a Fraction as a string") {
     Fraction f2(-7, 11);
     CHECK(f2.to_string() == "-7/11");
 }
+
+TEST_CASE("Test gcd function") {
+    CHECK(gcd(4, 14) == 2);
+    CHECK(gcd(16, 12) == 4);
+    CHECK(gcd(18, 27) == 9);
+}
