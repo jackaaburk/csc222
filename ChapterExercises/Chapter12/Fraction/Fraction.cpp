@@ -21,12 +21,19 @@ Fraction::Fraction() {
 Fraction::Fraction(string s) {
 	string slash = "/", s2 = s;
 	int slashpos = s.find(slash);
-	numerator = stoi (s.erase(slashpos));
-	denominator = stoi (s2.erase(0,slashpos+1));
-	int gcf = gcd(numerator, denominator);
-	numerator /= gcf;
-	denominator /= gcf;
+	if (slashpos == -1) { 
+		numerator = stoi(s);
+		denominator = 1;
 }
+	else {
+		numerator = stoi (s.erase(slashpos));
+		denominator = stoi (s2.erase(0,slashpos+1));
+		int gcf = gcd(numerator, denominator);
+		numerator /= gcf;
+		denominator /= gcf;
+}
+}
+
 
 Fraction::Fraction(int n) {
 	numerator = n;
