@@ -5,6 +5,7 @@ using namespace std;
 
 struct Fraction {
     int numerator, denominator;
+    float floatvalue;
     Fraction(int n, int d);
     Fraction();
     Fraction(string fraction);
