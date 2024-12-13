@@ -54,28 +54,28 @@ string Fraction::to_string() {
 	return oss.str();
 }
 
-bool Fraction::operator>(Fraction const& obj) {
-
+bool Fraction::operator>(Fraction const& fraction2) {
+	return floatvalue > fraction2.floatvalue;
 }
 
-bool Fraction::operator<(Fraction const& obj) {
-
+bool Fraction::operator<(Fraction const& fraction2) {
+	return floatvalue < fraction2.floatvalue;
 }
 
-bool Fraction::operator==(Fraction const& obj) {
-
+bool Fraction::operator==(Fraction const& fraction2) {
+	return floatvalue == fraction2.floatvalue;
 }
 
-bool Fraction::operator!=(Fraction const& obj) {
-
+bool Fraction::operator!=(Fraction const& fraction2) {
+	return floatvalue != fraction2.floatvalue;
 }
 
-bool Fraction::operator>=(Fraction const& obj) {
-
+bool Fraction::operator>=(Fraction const& fraction2) {
+	return floatvalue >= fraction2.floatvalue;
 }
 
-bool Fraction::operator<=(Fraction const& obj) {
-
+bool Fraction::operator<=(Fraction const& fraction2) {
+	return floatvalue <= fraction2.floatvalue;
 }
 
 
