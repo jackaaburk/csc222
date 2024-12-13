@@ -28,6 +28,11 @@ Fraction::Fraction(string s) {
 	denominator /= gcf;
 }
 
+Fraction::Fraction(int n) {
+	numerator = n;
+	denominator = 1;
+}
+
 string Fraction::to_string() {
 	stringstream oss;
 	oss << ::to_string(numerator) << "/" << ::to_string(denominator);

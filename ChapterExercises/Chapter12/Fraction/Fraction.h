@@ -8,6 +8,7 @@ struct Fraction {
     Fraction(int n, int d);
     Fraction();
     Fraction(string fraction);
+    Fraction(int n);
     string to_string();
 };
 
