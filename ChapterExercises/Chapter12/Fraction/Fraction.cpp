@@ -28,6 +28,8 @@ string Fraction::to_string() {
 	return oss.str();
 }
 
+
+
 int gcd(int n, int d) {
     if (n == 0)
         return d;
