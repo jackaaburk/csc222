@@ -11,6 +11,12 @@ struct Fraction {
     Fraction(string fraction);
     Fraction(int n);
     string to_string();
+    bool operator>(Fraction const& obj);
+    bool operator==(Fraction const& obj);
+    bool operator<(Fraction const& obj);
+    bool operator!=(Fraction const& obj);
+    bool operator>=(Fraction const& obj);
+    bool operator<=(Fraction const& obj);
 };
 
 int gcd(int n, int d);
