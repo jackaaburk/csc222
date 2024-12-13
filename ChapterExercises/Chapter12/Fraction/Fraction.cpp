@@ -31,6 +31,9 @@ Fraction::Fraction(string s) {
 string Fraction::to_string() {
 	stringstream oss;
 	oss << ::to_string(numerator) << "/" << ::to_string(denominator);
+	if (denominator == 1) {
+		return ::to_string(numerator);
+}
 	return oss.str();
 }
 
