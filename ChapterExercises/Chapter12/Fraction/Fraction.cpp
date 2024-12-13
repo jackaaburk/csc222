@@ -11,13 +11,13 @@ Fraction::Fraction(int n, int d) {
 	int gcf = gcd(numerator, denominator);
 	numerator /= gcf;
 	denominator /= gcf;
-	floatvalue = numerator/denominator;
+	floatvalue = static_cast<float>(numerator/denominator);
 }
 
 Fraction::Fraction() {
 	numerator = 0;
 	denominator = 1;
-	floatvalue = 0;
+	floatvalue = 0.;
 }
 
 Fraction::Fraction(string s) {
@@ -26,7 +26,7 @@ Fraction::Fraction(string s) {
 	if (slashpos == -1) { 
 		numerator = stoi(s);
 		denominator = 1;
-		floatvalue = numerator;
+		floatvalue = static_cast<float>(numerator);
 }
 	else {
 		numerator = stoi (s.erase(slashpos));
@@ -34,7 +34,7 @@ Fraction::Fraction(string s) {
 		int gcf = gcd(numerator, denominator);
 		numerator /= gcf;
 		denominator /= gcf;
-		floatvalue = numerator/denominator;
+		floatvalue = static_cast<float>(numerator/denominator);
 }
 }
 
@@ -42,7 +42,7 @@ Fraction::Fraction(string s) {
 Fraction::Fraction(int n) {
 	numerator = n;
 	denominator = 1;
-	floatvalue = n;
+	floatvalue = static_cast<float>(n);
 }
 
 string Fraction::to_string() {
