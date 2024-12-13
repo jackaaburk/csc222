@@ -8,6 +8,9 @@ using namespace std;
 Fraction::Fraction(int n, int d) {
 	numerator = n;
 	denominator = d;
+	int gcf = gcd(numerator, denominator);
+	numerator /= gcf;
+	denominator /= gcf;
 }
 
 Fraction::Fraction() {
@@ -20,6 +23,9 @@ Fraction::Fraction(string s) {
 	int slashpos = s.find(slash);
 	numerator = stoi (s.erase(slashpos));
 	denominator = stoi (s2.erase(0,slashpos+1));
+	int gcf = gcd(numerator, denominator);
+	numerator /= gcf;
+	denominator /= gcf;
 }
 
 string Fraction::to_string() {
