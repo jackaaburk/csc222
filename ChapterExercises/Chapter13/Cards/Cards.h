@@ -13,7 +13,7 @@ struct Card
 
     Card();
     Card(int s, int r);
-    
+
     bool operator==(const Card&) const;
     bool operator>(const Card&) const;
     bool operator<(const Card&) const;
@@ -28,7 +28,7 @@ struct Deck {
 
     Deck(int size);
     Deck();
-
+    
     void print() const;
     void shuffle();
     void sort();

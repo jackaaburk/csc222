@@ -32,7 +32,7 @@ TEST_CASE("Test for comparison of Cards") {
     CHECK((c5 >= c6) == true);
 }
 
-TEST_CASE("Test comparisons with Aces") { 
+TEST_CASE("Test comparisons with Aces") { //NOTE: This test has been changed from the provided one. Please see my commit description ("Implement Ace Value") for more information.
     Card ace(4, 13);
     Card c2(4, 2);
     Card c3(4, 1);
