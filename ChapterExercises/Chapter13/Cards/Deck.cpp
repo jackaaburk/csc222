@@ -3,7 +3,6 @@
 #include "Cards.h"
 #include <vector>
 
-//utils
 int random_between(int low, int high) {
     return 0;
 }
@@ -14,7 +13,11 @@ void Deck::print() const {
     }
 }
 
-//constructors
+int Deck::find(const Card& c) const{
+    return -1;
+}
+
+
 Deck::Deck(int size) {
     vector<Card> temp(size);
     cards = temp;
@@ -33,7 +36,7 @@ Deck::Deck() {
     }
 }
 
-//mutators
+
 void Deck::shuffle() {
     for (int i = 0; i < cards.size(); i++) {
         int rand_card = random_between(0, cards.size() - 1);
@@ -43,8 +46,6 @@ void Deck::shuffle() {
 
 void Deck::sort() {
     for (int i = 0; i < cards.size(); i++) {
-        //find the lowest card at or to the right of i
-        //swwap the ith card and the lowest card
     }
 }
 

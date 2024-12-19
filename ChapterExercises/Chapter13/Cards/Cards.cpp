@@ -9,7 +9,7 @@ vector<string> suit_strings = {"None", "Clubs", "Diamonds",
                                    "Hearts", "Spades"};
 vector<string> rank_strings = {"Joker", "None", "2", "3", "4", "5", "6",
                                    "7", "8", "9", "10", "Jack", "Queen",
-                                   "King", "Ace"}; //i didn't want to change the enum values... but they leave a gap between joker and 2. I inserted "none." pretty bad but whatever
+                                   "King", "Ace"};
 
 string Card::to_string() const {
     if (rank == 0) return rank_strings[rank];
@@ -33,7 +33,7 @@ bool Card::operator>(const Card& c) const {
 }
 
 bool Card::operator<(const Card& c) const{
-    return !(*this > c) && !(*this == c); //could be made more efficient by not dereferencing twice
+    return !(*this > c) && !(*this == c); 
 }
 
 bool Card::operator<=(const Card& c) const{
@@ -52,7 +52,6 @@ bool Card::operator!=(const Card& c2) const {
     return !(this->operator==(c2));
 }
 
-// Implement left shift operator
 ostream& operator<<(ostream& os, const Card& c){
     os << c.to_string();
     return os;
