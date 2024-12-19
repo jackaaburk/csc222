@@ -7,7 +7,7 @@ using namespace std;
 
 vector<string> suit_strings = {"None", "Clubs", "Diamonds",
                                    "Hearts", "Spades"};
-vector<string> rank_strings = {"Joker", "2", "3", "4", "5", "6",
+vector<string> rank_strings = {"Joker", "None", "2", "3", "4", "5", "6",
                                    "7", "8", "9", "10", "Jack", "Queen",
                                    "King", "Ace"}; 
 
