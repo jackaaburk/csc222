@@ -4,7 +4,6 @@
 #include "Cards.h"
 using namespace std;
 
-
 vector<string> suit_strings = {"None", "Clubs", "Diamonds",
                                    "Hearts", "Spades"};
 vector<string> rank_strings = {"Joker", "None", "2", "3", "4", "5", "6",
@@ -33,7 +32,7 @@ bool Card::operator>(const Card& c) const {
 }
 
 bool Card::operator<(const Card& c) const{
-    return !(*this > c) && !(*this == c); 
+    return !(*this > c) && !(*this == c);
 }
 
 bool Card::operator<=(const Card& c) const{

@@ -73,3 +73,10 @@ TEST_CASE("Test can shuffle Cards in deck"){
     d.shuffle();
     CHECK(d.cards[0].to_string() != "2 of Clubs");
 }
+
+TEST_CASE("Test can swap Cards in deck"){
+    Deck d = Deck();
+    d.swap_cards(0,51);
+    CHECK(d.cards[0].to_string() == "Ace of Spades");
+    CHECK(d.cards[1].to_string() == "2 of Clubs");
+}
