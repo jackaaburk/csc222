@@ -29,3 +29,12 @@ string BigInt::to_string() const
 bool BigInt::operator==(const BigInt& BigInt2) const {
     return ((digits == BigInt2.digits) && (negative == BigInt2.negative));
 }
+
+bool BigInt::operator>(const BigInt& BigInt2) const {
+    if ((negative == true) && (BigInt2.negative == false)) {
+        return false;
+}
+    elif ((negative == false) && (BigInt2.negative == true)) {
+
+}
+}
