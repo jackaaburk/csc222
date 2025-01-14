@@ -16,5 +16,9 @@ class BigInt
     string to_string() const;
     bool operator==(const BigInt& BigInt2) const;
     bool operator>(const BigInt& BigInt2) const;
+    bool operator<(const BigInt& BigInt2) const;
+    bool operator>=(const BigInt& BigInt2) const;
+    bool operator<=(const BigInt& BigInt2) const;
+    bool operator!=(const BigInt& BigInt2) const;
 };
 
