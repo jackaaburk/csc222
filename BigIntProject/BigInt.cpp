@@ -3,6 +3,7 @@
 #include "BigInt.h"
 using namespace std;
 
+
 BigInt::BigInt()
 {
     negative = false;
