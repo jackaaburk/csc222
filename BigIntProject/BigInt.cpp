@@ -55,3 +55,16 @@ bool BigInt::operator>(const BigInt& BigInt2) const {
 }
 }
 }
+
+bool BigInt::operator<(const BigInt& BigInt2) const {
+
+}
+bool BigInt::operator>=(const BigInt& BigInt2) const {
+
+}
+bool BigInt::operator<=(const BigInt& BigInt2) const {
+
+}
+bool BigInt::operator!=(const BigInt& BigInt2) const {
+    
+}
