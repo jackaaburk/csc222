@@ -3,7 +3,6 @@
 #include "BigInt.h"
 using namespace std;
 
-
 BigInt::BigInt()
 {
     negative = false;
@@ -38,8 +37,11 @@ bool BigInt::operator>(const BigInt& BigInt2) const {
     else if ((negative == false) && (BigInt2.negative == true)) {
         return true;
 }
-    if (digits.length() > BigInt2.digits.length()) {
-	return true;
+    if ((digits.length() > BigInt2.digits.length()) && (negative == false)){
+	    return true;
+}
+    if ((digits.length() > BigInt2.digits.length()) && (negative == true)){
+	    return false;
 }
     else if (negative == false && BigInt2.negative == false) {
         for(int i = 0; i < digits.length(); i++) {
@@ -58,14 +60,21 @@ bool BigInt::operator>(const BigInt& BigInt2) const {
 }
 
 bool BigInt::operator<(const BigInt& BigInt2) const {
-
+    return !((this->operator==(BigInt2)) || (this->operator>(BigInt2)));
 }
-bool BigInt::operator>=(const BigInt& BigInt2) const {
 
-}
-bool BigInt::operator<=(const BigInt& BigInt2) const {
-
-}
 bool BigInt::operator!=(const BigInt& BigInt2) const {
-    
+    return !(this->operator==(BigInt2));
+}
+
+bool BigInt::operator>=(const BigInt& BigInt2) const {
+    return ((this->operator==(BigInt2)) || (this->operator>(BigInt2)));
+}
+
+bool BigInt::operator<=(const BigInt& BigInt2) const {
+    return ((this->operator==(BigInt2)) || (this->operator<(BigInt2)));
+}
+
+BigInt BigInt::operator+(const BigInt& BigInt2) const{
+    return 0;
 }

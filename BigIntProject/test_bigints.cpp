@@ -47,6 +47,7 @@ TEST_CASE("Test can compare BigInts for inequality") {
     CHECK((i1 >= i7) == true);
     CHECK((i1 >= i4) == true);
     CHECK((i1 <= i4) == false);
+    CHECK((i1 <= i7) == true);
     CHECK((i1 != i7) == false);
     CHECK((i1 != i6) == true);
 }
