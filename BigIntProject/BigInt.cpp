@@ -3,6 +3,39 @@
 #include "BigInt.h"
 using namespace std;
 
+string increment_digit_string(const string &digit_string) {
+    string digits = digit_string;
+    int pos = digits.size() - 1;
+    char next_digit = digits[pos] + 1;
+
+    while (next_digit > '9' && pos >= 0) {
+        digits[pos] = '0';
+        next_digit = digits[--pos] + 1;
+    }
+
+    if (pos >= 0)
+        digits[pos] = next_digit;
+    else
+        digits = "1" + digits;
+
+    return digits;
+}
+
+string sum_common_len_digit_strs(const string &s1, const string &s2) {
+    char digit_sum, carry = 0;
+    string sum = s1;
+
+    for (int i = s1.size() - 1; i >= 0; i--) {
+        digit_sum = to_num(s1[i]) + to_num(s2[i]) + carry;
+        sum[i] = digit_to_char(digit_sum % 10);
+        carry = digit_sum > 9 ? 1 : 0;
+    }
+
+    return carry ? "c+" + sum : sum;
+}
+
+
+
 BigInt::BigInt()
 {
     negative = false;
