@@ -64,3 +64,14 @@ TEST_CASE("Test can add BigInts") {
     CHECK((i4 + i5).to_string() == "10000");
     CHECK((i6 + i6).to_string() == "246913578246913578246913578");
 }
+
+TEST_CASE("Test can subtract BigInts") {
+    BigInt i1("123");
+    BigInt i2("321");
+    BigInt i3("10000");
+    BigInt i4("1");
+    BigInt i5("123456789123456789123456789");
+    CHECK((i5 - i4).to_string() == "123456789123456789123456788");
+    CHECK((i2 - i1).to_string() == "198");
+    CHECK((i3 - i4).to_string() == "9999");
+}
