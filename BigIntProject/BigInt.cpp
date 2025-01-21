@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include "BigInt.h"
+#define to_num(c) (c-'0')
+#define digit_to_char(d) (d+'0')
 using namespace std;
 
 string increment_digit_string(const string &digit_string) {
@@ -108,6 +110,39 @@ bool BigInt::operator<=(const BigInt& BigInt2) const {
     return ((this->operator==(BigInt2)) || (this->operator<(BigInt2)));
 }
 
-BigInt BigInt::operator+(const BigInt& BigInt2) const{
-    return 0;
+BigInt BigInt::operator+(const BigInt& BigInt2) const
+{
+    if ((*this).digits.size() == BigInt2.digits.size()) {
+        string raw_sum = sum_common_len_digit_strs((*this).digits, BigInt2.digits);
+        if (raw_sum[0] == 'c')
+            return BigInt("1" + raw_sum.substr(2));
+        return BigInt(raw_sum);
+    }
+        
+    const BigInt *longer;
+    const BigInt *shorter;
+    int common, extra;
+    string summed_common_digits, leading_digits;
+
+    if ((*this).digits.size() > BigInt2.digits.size()) {
+        longer = this;
+        shorter = &BigInt2;
+    } else {
+        longer = &BigInt2;
+        shorter = this;
+    };
+
+    common = shorter->digits.size();
+    extra = longer->digits.size() - common;
+    summed_common_digits = sum_common_len_digit_strs(
+       shorter->digits, 
+       longer->digits.substr(extra)
+    );
+    leading_digits = longer->digits.substr(0, extra);
+
+    if (summed_common_digits[0] != 'c')
+        return BigInt(leading_digits + summed_common_digits);
+
+    return BigInt(increment_digit_string(leading_digits) +
+                  summed_common_digits.substr(2));
 }
