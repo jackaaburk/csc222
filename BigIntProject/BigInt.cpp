@@ -23,6 +23,16 @@ string increment_digit_string(const string &digit_string) {
     return digits;
 }
 
+string decrement_digit_sring(const string &digit_string {
+    string digits = digit_string;
+    int pos = digits.size() - 1;
+    char base_digit = digits[pos];
+    char prior_digit = digits[pos-1];
+    if (base_digit == '0') {
+        
+}
+}
+
 string sum_common_len_digit_strs(const string &s1, const string &s2) {
     char digit_sum, carry = 0;
     string sum = s1;
