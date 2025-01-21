@@ -110,8 +110,7 @@ bool BigInt::operator<=(const BigInt& BigInt2) const {
     return ((this->operator==(BigInt2)) || (this->operator<(BigInt2)));
 }
 
-BigInt BigInt::operator+(const BigInt& BigInt2) const
-{
+BigInt BigInt::operator+(const BigInt& BigInt2) const {
     if ((*this).digits.size() == BigInt2.digits.size()) {
         string raw_sum = sum_common_len_digit_strs((*this).digits, BigInt2.digits);
         if (raw_sum[0] == 'c')
@@ -146,3 +145,7 @@ BigInt BigInt::operator+(const BigInt& BigInt2) const
     return BigInt(increment_digit_string(leading_digits) +
                   summed_common_digits.substr(2));
 }
+
+BigInt BigInt::operator-(const BigInt& BigInt2) const {
+    if ((*this).digits.size() == BigInt2.digits.size()) {
+    }
