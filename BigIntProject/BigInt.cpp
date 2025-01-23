@@ -23,7 +23,7 @@ string increment_digit_string(const string &digit_string) {
     return digits;
 }
 
-string decrement_digit_sring(const string &digit_string {
+string decrement_digit_sring(const string &digit_string) {
     string digits = digit_string;
     int pos = digits.size() - 1;
     char base_digit = digits[pos];
@@ -189,10 +189,9 @@ BigInt BigInt::operator+(const BigInt& BigInt2) const {
 }
 
 BigInt BigInt::operator-(const BigInt& BigInt2) const {
-    if ((*this).digits.size() == BigInt2.digits.size()) {
-        string raw_sub = sub_common_len_digit_strs((*this).digits, BigInt2.digits);
-        if (raw_sub[0] == 'c')
-            return BigInt("1" + raw_sub.substr(2));
-        return BigInt(raw_sub);
-    }
+    if (BigInt2 == negative) {
+        string BigInt2string = BigInt2.to_string();
+        string BigInt3 = BigInt2string.substr(1);
+}
+    *this + BigInt2;
 }
