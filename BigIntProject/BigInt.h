@@ -2,6 +2,7 @@
 using namespace std;
 
 string increment_digit_string(const string &);
+string decrement_digit_string(const string &);
 string sum_common_len_digit_strs(const string&, const string&);
 
 class BigInt
