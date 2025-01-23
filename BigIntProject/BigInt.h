@@ -4,7 +4,7 @@ using namespace std;
 string increment_digit_string(const string &);
 string decrement_digit_string(const string &);
 string sum_common_len_digit_strs(const string&, const string&);
-
+string sub_common_len_digit_strs(const string&, const string&);
 class BigInt
 {
     bool negative;
@@ -25,5 +25,6 @@ class BigInt
     bool operator<=(const BigInt& BigInt2) const;
     bool operator!=(const BigInt& BigInt2) const;
     BigInt operator+(const BigInt& other) const;
+    BigInt operator-(const BigInt& other) const;
 };
 
