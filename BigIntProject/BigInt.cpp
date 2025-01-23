@@ -187,11 +187,24 @@ BigInt BigInt::operator+(const BigInt& BigInt2) const {
     return BigInt(increment_digit_string(leading_digits) +
                   summed_common_digits.substr(2));
 }
-
 BigInt BigInt::operator-(const BigInt& BigInt2) const {
-    if (BigInt2 == negative) {
-        string BigInt2string = BigInt2.to_string();
-        string BigInt3 = BigInt2string.substr(1);
+    if ((*this).digits.size() == BigInt2.digits.size()) {
+        string raw_sub = sub_common_len_digit_strs((*this).digits, BigInt2.digits);
+        if (raw_sub[0] == 'c')
+            return BigInt("1" + raw_sub.substr(2));
+        return BigInt(raw_sub);
+    }
+    const BigInt *longer;
+    const BigInt *shorter;
+    int common, extra;
+    string subbed_common_digits, leading digits;
+
+    if ((*this).digits.size() > BigInt2.digits.size() {
+        longer = this;
+        shorter = &BigInt2;
 }
-    *this + BigInt2;
+    else {
+        longer = &BigInt2;
+        shorter = this;
+};
 }
