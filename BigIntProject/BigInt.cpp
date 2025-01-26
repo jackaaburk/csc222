@@ -197,9 +197,9 @@ BigInt BigInt::operator-(const BigInt& BigInt2) const {
     const BigInt *longer;
     const BigInt *shorter;
     int common, extra;
-    string subbed_common_digits, leading digits;
+    string subbed_common_digits, leading_digits;
 
-    if ((*this).digits.size() > BigInt2.digits.size() {
+    if ((*this).digits.size() > BigInt2.digits.size()) {
         longer = this;
         shorter = &BigInt2;
 }
