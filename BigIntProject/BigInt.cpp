@@ -23,16 +23,6 @@ string increment_digit_string(const string &digit_string) {
     return digits;
 }
 
-string decrement_digit_sring(const string &digit_string) {
-    string digits = digit_string;
-    int pos = digits.size() - 1;
-    char base_digit = digits[pos];
-    char prior_digit = digits[pos-1];
-    if (base_digit == '0') {
-        
-}
-}
-
 string sum_common_len_digit_strs(const string &s1, const string &s2) {
     char digit_sum, carry = 0;
     string sum = s1;
@@ -44,40 +34,6 @@ string sum_common_len_digit_strs(const string &s1, const string &s2) {
     }
 
     return carry ? "c+" + sum : sum;
-}
-
-string sub_common_len_digit_strs(const string &s1, const string &s2)
-{
-    string results, s3, s4;
-    if (s1[0] == '-') {
-        s3 = s1.substr(1, s1.size());
-        results = sum_common_len_digit_strs(s3, s2);
-        return "-" + results;
-}
-if (s2[0] == '-') {
-        s4 = s2.substr(1, s2.size());
-        results = sum_common_len_digit_strs(s4, s1);
-        return  results;
-}
-    string result(s1.size(), '0');  
-    char borrow = 0;  
-    for (int i = s1.size() - 1; i >= 0; --i) {  
-        int digit1 = to_num(s1[i]) - borrow;  
-        int digit2 = to_num(s2[i]);  
-        if (digit1 < digit2) { 
-            digit1 += 10;  
-            borrow = 1;   
-}
-        else {  
-            borrow = 0;  
-}    
-        result[i] = digit_to_char(digit1 - digit2);  
-}  
-    size_t pos = result.find_first_not_of('0');  
-    if (pos != string::npos) {  
-        return result.substr(pos);  
-}  
-    return "0";
 }
 
 BigInt::BigInt()
@@ -187,24 +143,21 @@ BigInt BigInt::operator+(const BigInt& BigInt2) const {
     return BigInt(increment_digit_string(leading_digits) +
                   summed_common_digits.substr(2));
 }
-BigInt BigInt::operator-(const BigInt& BigInt2) const {
-    if ((*this).digits.size() == BigInt2.digits.size()) {
-        string raw_sub = sub_common_len_digit_strs((*this).digits, BigInt2.digits);
-        if (raw_sub[0] == 'c')
-            return BigInt("1" + raw_sub.substr(2));
-        return BigInt(raw_sub);
-    }
-    const BigInt *longer;
-    const BigInt *shorter;
-    int common, extra;
-    string subbed_common_digits, leading_digits;
 
-    if ((*this).digits.size() > BigInt2.digits.size()) {
-        longer = this;
-        shorter = &BigInt2;
+BigInt BigInt::operator-(const BigInt& BigInt2) const {
+    if (this->negative != BigInt2.negative) {
+        BigInt temp = BigInt2;
+        temp.negative = !BigInt2.negative;
+        return *this + temp;
+    }
+
+    if (*this < BigInt2) {
+        BigInt result = BigInt2 - *this;
+        result.negative = !this->negative;
+        return result;
+    }
+
+
 }
-    else {
-        longer = &BigInt2;
-        shorter = this;
-};
-}
+
+
