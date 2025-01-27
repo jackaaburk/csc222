@@ -185,4 +185,7 @@ BigInt BigInt::operator-(const BigInt& BigInt2) const {
     return BigInt(this->negative ? "-" + result : result);
 }
 
+BigInt BigInt::operator*(const BigInt& BigInt2) const {
+
+}
 
