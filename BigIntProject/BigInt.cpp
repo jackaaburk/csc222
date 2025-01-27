@@ -186,6 +186,22 @@ BigInt BigInt::operator-(const BigInt& BigInt2) const {
 }
 
 BigInt BigInt::operator*(const BigInt& BigInt2) const {
+    bool productnegative = ((*this.negative) ^^ (BigInt2.negative));
+    BigInt 
 
+    if ((*this).digits.size() > BigInt2.digits.size()) {
+        longer = this;
+        shorter = &BigInt2;
+    } else {
+        longer = &BigInt2;
+    } else {
+        longer = &BigInt2;
+        shorter = this;
+    };
+
+    for (int i = shorter; i > 0; --i) {
+        longer + shorter;
+}
+    return longer;
 }
 
