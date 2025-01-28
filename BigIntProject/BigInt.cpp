@@ -189,6 +189,8 @@ BigInt BigInt::operator*(const BigInt& BigInt2) const {
     bool productnegative = ((*this.negative) ^ (BigInt2.negative));
     const BigInt *longer;
     const BigInt *shorter; 
+    BigInt IterationBigInt("1");
+    BigInt CounterBigInt("0");
 
     if ((*this).digits.size() > BigInt2.digits.size()) {
         longer = this;
@@ -198,9 +200,13 @@ BigInt BigInt::operator*(const BigInt& BigInt2) const {
         shorter = this;
     };
 
-    for (int i = shorter; i > 0; --i) {
-        longer + shorter;
+    BigInt LongerAdder("0");
+
+    while (CounterBigInt.digits != shorter.digits) {
+        LongerAdder + longer;
+        CounterBigInt + IterationBigInt;
 }
-    return longer;
+
+    return LongerAdder;
 }
 
