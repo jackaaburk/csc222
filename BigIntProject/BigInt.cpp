@@ -212,6 +212,10 @@ BigInt BigInt::operator*(const BigInt& BigInt2) const {
         result = "0";
     }
 
+    if (productnegative && result != "0") {
+        result = "-" + result;
+    }
+
     return BigInt(result);
 }
 
