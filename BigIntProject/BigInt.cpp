@@ -13,7 +13,7 @@ string increment_digit_string(const string &digit_string) {
     while (next_digit > '9' && pos >= 0) {
         digits[pos] = '0';
         next_digit = digits[--pos] + 1;
-    }
+}
 
     if (pos >= 0)
         digits[pos] = next_digit;
@@ -31,31 +31,27 @@ string sum_common_len_digit_strs(const string &s1, const string &s2) {
         digit_sum = to_num(s1[i]) + to_num(s2[i]) + carry;
         sum[i] = digit_to_char(digit_sum % 10);
         carry = digit_sum > 9 ? 1 : 0;
-    }
+}
 
     return carry ? "c+" + sum : sum;
 }
 
-BigInt::BigInt()
-{
+BigInt::BigInt() {
     negative = false;
     digits = "0";
 }
 
-BigInt::BigInt(int i)
-{
+BigInt::BigInt(int i) {
     negative = (i >= 0) ? false : true;
     digits = (i >= 0) ? std::to_string(i) : std::to_string(-i);
 }
 
-BigInt::BigInt(string n)
-{
+BigInt::BigInt(string n) {
     negative = (n.front() == '-') ? true: false;
     digits = (n.front() == '-') ? n.substr(1, n.size() - 1) : n;
 }
 
-string BigInt::to_string() const
-{
+string BigInt::to_string() const {
     return (!negative) ? digits : "-" + digits;
 }
 
@@ -90,6 +86,7 @@ bool BigInt::operator>(const BigInt& BigInt2) const {
 }
 }
 }
+    return false;
 }
 
 bool BigInt::operator<(const BigInt& BigInt2) const {
@@ -175,7 +172,7 @@ BigInt BigInt::operator-(const BigInt& BigInt2) const {
         result[this_len - 1 - i] = digit_to_char(digit1 - digit2);
     }
 
-    size_t pos = result.find_first_not_of('0');
+   int pos = result.find_first_not_of('0');
     if (pos != string::npos) {
         result = result.substr(pos);
     } else {
