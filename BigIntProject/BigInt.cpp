@@ -111,7 +111,7 @@ BigInt BigInt::operator+(const BigInt& BigInt2) const {
         if (raw_sum[0] == 'c')
             return BigInt("1" + raw_sum.substr(2));
         return BigInt(raw_sum);
-    }
+}
         
     const BigInt *longer;
     const BigInt *shorter;
@@ -121,10 +121,11 @@ BigInt BigInt::operator+(const BigInt& BigInt2) const {
     if ((*this).digits.size() > BigInt2.digits.size()) {
         longer = this;
         shorter = &BigInt2;
-    } else {
+}
+        else {
         longer = &BigInt2;
         shorter = this;
-    };
+};
 
     common = shorter->digits.size();
     extra = longer->digits.size() - common;
@@ -146,13 +147,13 @@ BigInt BigInt::operator-(const BigInt& BigInt2) const {
         BigInt temp = BigInt2;
         temp.negative = !BigInt2.negative;
         return *this + temp;
-    }
+}
 
     if (*this < BigInt2) {
         BigInt result = BigInt2 - *this;
         result.negative = !this->negative;
         return result;
-    }
+}
 
     string result(digits.size(), '0');
     char borrow = 0;
@@ -165,19 +166,21 @@ BigInt BigInt::operator-(const BigInt& BigInt2) const {
         if (digit1 < digit2) {
             digit1 += 10;
             borrow = 1;
-        } else {
+} 
+        else {
             borrow = 0;
-        }
+}
 
         result[this_len - 1 - i] = digit_to_char(digit1 - digit2);
-    }
+}
 
    int pos = result.find_first_not_of('0');
     if (pos != string::npos) {
         result = result.substr(pos);
-    } else {
+}
+    else {
         result = "0";
-    }
+}
 
     return BigInt(this->negative ? "-" + result : result);
 }
@@ -198,20 +201,21 @@ BigInt BigInt::operator*(const BigInt& BigInt2) const {
             int temp = to_num(result[i + j + 1]) + digit1 * digit2 + carry;
             result[i + j + 1] = digit_to_char(temp % 10);
             carry = temp / 10;
-        }
+}
         result[i] = digit_to_char(to_num(result[i]) + carry);
-    }
+}
 
     int startpos = result.find_first_not_of('0');
     if (startpos != std::string::npos) {
         result = result.substr(startpos);
-    } else {
+}
+    else {
         result = "0";
-    }
+}
 
     if (productnegative && result != "0") {
         result = "-" + result;
-    }
+}
 
     return BigInt(result);
 }
